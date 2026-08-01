@@ -1,0 +1,7 @@
+.vercel/
+.gemini/
+.agents/
+node_modules/
+*.zip
+form_data.json
+*.log
