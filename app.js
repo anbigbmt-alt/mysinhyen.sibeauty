@@ -1118,6 +1118,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         startCheckoutCountdown();
 
+        // Track Facebook Pixel InitiateCheckout event
+        if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout');
+        }
+
     }
 
     function closeCheckoutModal() {
@@ -1379,7 +1384,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         openSuccessModal();
 
-        
+        // Track Facebook Pixel Purchase event
+        if (typeof fbq === 'function') {
+            fbq('track', 'Purchase', {
+                value: total,
+                currency: 'VND',
+                content_name: variant.name,
+                content_category: 'Yến Sào',
+                num_items: currentQuantity
+            });
+        }
 
         // Reset form
 
